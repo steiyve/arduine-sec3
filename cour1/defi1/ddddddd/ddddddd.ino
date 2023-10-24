@@ -1,4 +1,6 @@
 byte LED = 13;
+
+
 void send_S(){
  for (byte i = 0; i<3; i++){
     digitalWrite(LED, HIGH);
@@ -8,6 +10,7 @@ void send_S(){
     Serial.println(1);
   }  
 }
+
 void send_O(){
    for (byte i = 0; i<3; i++)
   {
@@ -19,12 +22,19 @@ void send_O(){
   }
   
 }
+
 void send_SOS(){ 
   send_S();
   send_O();
   send_S();
 }
+
+
 void setup(){
   // put your setup code here, to run once:
   send_SOS();
+}
+
+void loop(){
+  exit(1);
 }
