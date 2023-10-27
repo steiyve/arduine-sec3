@@ -1,0 +1,38 @@
+byte LED = 13;
+int one_unit = 300;
+
+void send_S(){
+ for (byte i = 0; i<3; i++){
+    digitalWrite(LED, HIGH);
+    delay(one_unit);
+    digitalWrite(LED, LOW);
+    delay(one_unit);
+  }  
+}
+
+void send_O(){
+   for (byte i = 0; i<3; i++)
+  {
+    digitalWrite(LED, HIGH);
+    delay(one_unit*3);
+    digitalWrite(LED, LOW);
+    delay(one_unit*3);
+  }
+  
+}
+
+void send_SOS(){ 
+  send_S();
+  send_O();
+  send_S();
+}
+
+
+void setup(){
+  // put your setup code here, to run once:
+  send_SOS();
+}
+
+void loop(){
+  exit(1);
+}
