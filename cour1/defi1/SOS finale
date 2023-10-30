@@ -23,8 +23,11 @@ void send_O(){
 
 void send_SOS(){ 
   send_S();
+  delay(one_unit*3)
   send_O();
+  delay(one_unit*3)
   send_S();
+  delay(one*4)
 }
 
 
