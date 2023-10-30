@@ -18,7 +18,7 @@ void send_O(){
     digitalWrite(LED, HIGH);
     delay(one_unit*3);
     digitalWrite(LED, LOW);
-    delay(one_unit*3);
+    delay(one_unit);
   }
   digitalWrite(LED, HIGH);
    delay(one_unit*3);
