@@ -5,10 +5,9 @@ byte modification = 5;
 const byte delay_time = 250;
 char choix = 0;
 
+// fonction qui prend un input
 void input(){
-  choix = Serial.parseInt();
-  Serial.println("votre choix");
-  Serial.println(choix);
+  choix = Serial.parseInt();          // User input(int) -> choix      
 }
 
 void setup() {
@@ -19,15 +18,16 @@ void setup() {
 }
 
 void loop() {
+  // allumer une led
   analogWrite(LED, light_amount);
-  
-  input();
-  if (choix == 1){
-    digitalWrite(green, HIGH);
-  }
 
-  else if (choix == 2){
-    digitalWrite(green, LOW);
+  //prendre linput et checker sa valeur
+  input();
+  switch (choix){
+    case 1:
+      digitalWrite(green, HIGH);                               // allumer la led
+    case 2:
+      digitalWrite(green, LOW);                                // fermer la led
   }
 
   // bloc de code qui donne une valeur random a modification
