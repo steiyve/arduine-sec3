@@ -13,7 +13,7 @@ const byte led2 = 10;
 //         fonction qui lit l'etat du bouton             //
 //      et qui l'assigne a la variable button state      //
 //=======================================================//
-byte use_button() 
+bool use_button() 
 {
   return digitalRead(button);
 }
@@ -38,7 +38,7 @@ void on_off(bool button_state, int light_res_value)
 {                                  
   switch(button_state) 
   { 
-    case 1:                                        // si button_state = 1                   
+    case true:                                     // si button_state = 1                   
       Serial.print(button_state);                  // on affiche button_state
       Serial.print("||");
       Serial.println(light_res_value);
@@ -51,10 +51,10 @@ void on_off(bool button_state, int light_res_value)
       }
       else if (light_res_value >= 100)            // si la valeur de la resistance est superieur a 100
       {
-        digitalWrite(led2, LOW);                 // on eteint la led2
+        digitalWrite(led2, LOW);                  // on eteint la led2
       }
 
-    case 0:                                       // si button_state = 0
+    case fale:                                    // si button_state = 0
       Serial.println(button_state);               // on affiche button_state
       digitalWrite(led, LOW);                     // on eteint la led
       digitalWrite(led2, LOW);                    // on eteint la led2        
@@ -77,7 +77,7 @@ void setup()
 void loop() 
 {
   //definition des variables
-  byte button_state = use_button();
+  bool button_state = use_button();
   int light_res_value = use_light_res();
 
   //utilisation des fonctions
