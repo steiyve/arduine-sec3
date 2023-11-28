@@ -5,6 +5,8 @@ const byte light_res = A0;
 const byte led2 = 10;
 
 
+// pour ameliorer : 2 choses : button debouncing + button interrupt
+
 //=======================================================//
 //==================== FONCTIONS ========================//
 //=======================================================//
@@ -32,7 +34,7 @@ int use_light_res()
 //         fonction qui allume ou eteint la led          //
 //      en fonction de la valeur de button_state(param)  //
 //=======================================================//
-void on_off(byte button_state, int light_res_value) 
+void on_off(bool button_state, int light_res_value) 
 {                                  
   switch(button_state) 
   { 
@@ -47,9 +49,9 @@ void on_off(byte button_state, int light_res_value)
       {
         digitalWrite(led2, HIGH);                 // on allume la led2
       }
-      else if (light_res_value <= 100)            // si la valeur de la resistance est superieur a 100
+      else if (light_res_value >= 100)            // si la valeur de la resistance est superieur a 100
       {
-        digitalWrite(led2, HIGH);                 // on eteint la led2
+        digitalWrite(led2, LOW);                 // on eteint la led2
       }
 
     case 0:                                       // si button_state = 0
@@ -69,6 +71,7 @@ void setup()
   pinMode(button,INPUT);
   pinMode(led,OUTPUT);
   pinMode(led2,OUTPUT);
+  pinMode(light_res,INPUT);
 }
 
 void loop() 
