@@ -1,0 +1,2 @@
+"arduino.path": "Downloads/arduino-nightly", #<---------- Path to installed Arduino app
+"arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json, https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json",
