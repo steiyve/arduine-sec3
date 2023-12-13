@@ -76,10 +76,8 @@ void setup()
 
 void loop() 
 {
-  //definition des variables
-  bool button_state = use_button();
-  int light_res_value = use_light_res();
+
 
   //utilisation des fonctions
-  on_off(button_state, light_res_value);
+  on_off(use_button(), use_light_res());
 }
